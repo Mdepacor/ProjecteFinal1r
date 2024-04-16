@@ -6,12 +6,14 @@ using UnityEngine;
 public class Mouse : MonoBehaviour
 {
     GameObject menu;
+    GameObject[] construirTorres;
     // Start is called before the first frame update
     void Start()
     {
+        construirTorres = GameObject.FindGameObjectsWithTag("construirTorres");
         menu = GameObject.FindGameObjectWithTag("Menu");
         menu.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-        menu.SetActive(false);
+        menu.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -25,8 +27,19 @@ public class Mouse : MonoBehaviour
             RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (click.collider != null)
             {
-                menu.transform.position = transform.position;
-                menu.SetActive(true);
+                for (int i = 0; i < construirTorres.Length; i++)
+                {
+                    if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
+                    {
+                        menu.transform.position = construirTorres[i].transform.position;
+                        menu.GetComponent<SpriteRenderer>().enabled = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                menu.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
