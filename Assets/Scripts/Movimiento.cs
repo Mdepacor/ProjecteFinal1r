@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +6,34 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     float velocidad;
-    GameObject[] target;
+    GameObject[] checkpoint;
     int contador;
     // Start is called before the first frame update
     void Start()
     {
         contador = 0;
-        velocidad = 2;
-        target = GameObject.FindGameObjectsWithTag("Target");
+        velocidad = 10;
+        checkpoint = GameObject.FindGameObjectsWithTag("Checkpoint");
+        Array.Sort(checkpoint, (a, b) => a.name.CompareTo(b.name));
+
+        for (int i = 0; i < checkpoint.Length; i++)
+        {
+            Debug.Log(checkpoint[i].name);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direccion = target[contador].transform.position - transform.position;
+        Vector3 direccion = checkpoint[contador].transform.position - transform.position;
 
         transform.position = transform.position + (direccion.normalized * velocidad * Time.deltaTime);
+        float restaX = transform.position.x - checkpoint[contador].transform.position.x;
+        float restaY = transform.position.y - checkpoint[contador].transform.position.y;
 
-        if (transform.position == target[contador].transform.position)
+        if (Mathf.Abs(restaX) <= 0.02 && Mathf.Abs(restaY) <= 0.02)
         {
-            if (contador < target.Length - 1)
+            if (contador < checkpoint.Length - 1)
             {
                 contador++;
             }
