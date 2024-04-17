@@ -14,6 +14,7 @@ public class Mouse : MonoBehaviour
         menu = GameObject.FindGameObjectWithTag("Menu");
         menu.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
         menu.GetComponent<SpriteRenderer>().enabled = false;
+        menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, 1);
     }
 
     // Update is called once per frame
@@ -29,10 +30,11 @@ public class Mouse : MonoBehaviour
             {
                 for (int i = 0; i < construirTorres.Length; i++)
                 {
-                    if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
+                    if (click.collider == construirTorres[i].GetComponent<BoxCollider2D>())
                     {
                         menu.transform.position = construirTorres[i].transform.position;
                         menu.GetComponent<SpriteRenderer>().enabled = true;
+                        menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, -1);
                         break;
                     }
                 }
@@ -40,6 +42,7 @@ public class Mouse : MonoBehaviour
             else
             {
                 menu.GetComponent<SpriteRenderer>().enabled = false;
+                menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, 1);
             }
         }
     }

@@ -15,11 +15,6 @@ public class Movimiento : MonoBehaviour
         velocidad = 10;
         checkpoint = GameObject.FindGameObjectsWithTag("Checkpoint");
         Array.Sort(checkpoint, (a, b) => a.name.CompareTo(b.name));
-
-        for (int i = 0; i < checkpoint.Length; i++)
-        {
-            Debug.Log(checkpoint[i].name);
-        }
     }
 
     // Update is called once per frame
