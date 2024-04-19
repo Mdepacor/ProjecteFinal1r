@@ -6,22 +6,16 @@ public class GeneradorEnemigos : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject spawn;
-    private List<GameObject> enemigos;
     public GameObject[] _prefabs;
 
-    public double tiempo = 2;
+    public double tiempo;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        enemy = GameObject.FindGameObjectWithTag("Enemigos");
         spawn = GameObject.FindGameObjectWithTag("Spawn");
 
-        for (int i = 0; i < 30; i++)
-        {
-            enemigos.Add(enemy);  
-        }
+        tiempo = 2.0;
 
     }
 
@@ -30,12 +24,10 @@ public class GeneradorEnemigos : MonoBehaviour
     {
 
         tiempo -= Time.deltaTime;
-        Debug.Log(tiempo);
         if (tiempo <= 0)
         {
-
             Instantiate(_prefabs[0],spawn.transform.position,spawn.transform.rotation);
-            tiempo = 10.0;
+            tiempo = 2.0;
         }
 
 
