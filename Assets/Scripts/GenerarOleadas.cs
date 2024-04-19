@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +8,25 @@ public class GeneradorEnemigos : MonoBehaviour
     private GameObject spawn;
     public GameObject[] _prefabs;
 
-    public double tiempoEnemigos;
-    public double tiempoBoss;
+
+    private double tiempoEnemigos;
+    private double tiempoBoss;
+    private Cam cam;
+    
+   
+
 
     // Start is called before the first frame update
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawn");
+        cam= FindAnyObjectByType<Cam>();    
 
         tiempoEnemigos = 2.0;
         tiempoBoss = 10.0;
+        
+
+       
     }
 
     // Update is called once per frame
@@ -34,8 +44,12 @@ public class GeneradorEnemigos : MonoBehaviour
 
         if (tiempoBoss <= 0)
         {
-            Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);
+            Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);            
             tiempoBoss = 10.0;
+            cam.zoomInZoomOut(GameObject.FindGameObjectWithTag("Boss").transform.position);
+            
+
+
         }
 
     }

@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Enemigos
   - Spawn
+  - Boss
   layers:
   - Default
   - TransparentFX
