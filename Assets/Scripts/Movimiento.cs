@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    float velocidad;
-    GameObject[] checkpoint;
-    int contador;
+    public float velocidad;
+    private GameObject[] checkpoint;
+    private int contador;
     // Start is called before the first frame update
     void Start()
     {
         contador = 0;
-        velocidad = 10;
         checkpoint = GameObject.FindGameObjectsWithTag("Checkpoint");
         Array.Sort(checkpoint, (a, b) => a.name.CompareTo(b.name));
     }
