@@ -13,7 +13,7 @@ public class GeneradorEnemigos : MonoBehaviour
     private double tiempoBoss;
     private Cam cam;
     private Movimiento velocidad;
-    private GameObject boss;
+    private GameObject[] boss;
    
 
 
@@ -51,9 +51,10 @@ public class GeneradorEnemigos : MonoBehaviour
         if (tiempoBoss <= 0)
         {
             Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);
-            boss = GameObject.FindGameObjectWithTag("Boss");
-            boss.GetComponent<Movimiento>().velocidad = 0;
-            cam.zoomInZoomOut(boss.transform.position,7f);
+            boss = GameObject.FindGameObjectsWithTag("Boss");
+            int posicion = boss.Length;
+             boss[posicion-1].GetComponent<Movimiento>().velocidad = 0;
+            cam.zoomInZoomOut(boss[posicion-1].transform.position,7f);
             tiempoBoss = 10.0;
             
 
@@ -64,8 +65,8 @@ public class GeneradorEnemigos : MonoBehaviour
         {
             try
             {
-                
-                boss.GetComponent<Movimiento>().velocidad = 5;
+                int posicion = boss.Length;
+                boss[posicion-1].GetComponent<Movimiento>().velocidad = 5;
                 
                 cam.zoomInZoomOut(new Vector3(0,0,-10),14);
             }
