@@ -12,15 +12,20 @@ public class GeneradorEnemigos : MonoBehaviour
     private double tiempoEnemigos;
     private double tiempoBoss;
     private Cam cam;
-    
+    private Movimiento velocidad;
+    private GameObject boss;
    
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawn");
-        cam= FindAnyObjectByType<Cam>();    
+        cam= FindAnyObjectByType<Cam>(); 
+        velocidad= FindAnyObjectByType<Movimiento>();    
+
 
         tiempoEnemigos = 2.0;
         tiempoBoss = 10.0;
@@ -40,16 +45,34 @@ public class GeneradorEnemigos : MonoBehaviour
         {
             Instantiate(_prefabs[0],spawn.transform.position,spawn.transform.rotation);
             tiempoEnemigos = 2.0;
+            
         }
 
         if (tiempoBoss <= 0)
         {
-            Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);            
+            Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);
+            boss = GameObject.FindGameObjectWithTag("Boss");
+            boss.GetComponent<Movimiento>().velocidad = 0;
+            cam.zoomInZoomOut(boss.transform.position,7f);
             tiempoBoss = 10.0;
-            cam.zoomInZoomOut(GameObject.FindGameObjectWithTag("Boss").transform.position);
             
 
 
+        }
+        
+        if (tiempoBoss > 7.0 && tiempoBoss < 7.5) 
+        {
+            try
+            {
+                
+                boss.GetComponent<Movimiento>().velocidad = 5;
+                
+                cam.zoomInZoomOut(new Vector3(0,0,-10),14);
+            }
+            catch (Exception e)
+            {
+                Exception a = e;
+            }
         }
 
     }
