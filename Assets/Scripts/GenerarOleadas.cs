@@ -28,7 +28,7 @@ public class GeneradorEnemigos : MonoBehaviour
 
 
         tiempoEnemigos = 2.0;
-        tiempoBoss = 10.0;
+        tiempoBoss = 60.0;
         
 
        
@@ -55,24 +55,24 @@ public class GeneradorEnemigos : MonoBehaviour
             int posicion = boss.Length;
              boss[posicion-1].GetComponent<Movimiento>().velocidad = 0;
             cam.zoomInZoomOut(boss[posicion-1].transform.position,7f);
-            tiempoBoss = 10.0;
+            tiempoBoss = 60.0;
             
 
 
         }
         
-        if (tiempoBoss > 7.0 && tiempoBoss < 7.5) 
+        if (tiempoBoss > 57.0 && tiempoBoss < 57.5) 
         {
             try
             {
                 int posicion = boss.Length;
                 boss[posicion-1].GetComponent<Movimiento>().velocidad = 5;
                 
-                cam.zoomInZoomOut(new Vector3(0,0,-10),14);
+                cam.zoomInZoomOut(new Vector3(0,0,-10),13f);
             }
             catch (Exception e)
             {
-                Exception a = e;
+                e = new Exception();
             }
         }
 
