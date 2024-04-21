@@ -20,6 +20,9 @@ public class Cam : MonoBehaviour
         
         
     }
+
+
+    // Funcion Cambio de posicion de la camara
     public void zoomInZoomOut(Vector3 posicion ,float zoom)
     {
 

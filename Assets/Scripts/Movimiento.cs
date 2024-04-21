@@ -27,6 +27,7 @@ public class Movimiento : MonoBehaviour
 
         if (Mathf.Abs(restaX) <= 0.15 && Mathf.Abs(restaY) <= 0.15)
         {
+            
             if (contador < checkpoint.Length - 1)
             {
                 contador++;

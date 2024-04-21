@@ -40,6 +40,7 @@ public class Mouse : MonoBehaviour
             RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (click.collider != null)
             {
+                // Cambio de posicion del menu 
                 for (int i = 0; i < construirTorres.Length; i++)
                 {
                     if (click.collider == construirTorres[i].GetComponent<BoxCollider2D>())
@@ -53,7 +54,7 @@ public class Mouse : MonoBehaviour
                     }
                 }
 
-
+                // Construccion de la torre
                 for (int i = 0; i < menuTorres.Length; i++)
                 {
                     if (click.collider == menuTorres[i].GetComponent<BoxCollider2D>())
