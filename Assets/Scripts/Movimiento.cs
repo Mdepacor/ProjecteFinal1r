@@ -25,7 +25,7 @@ public class Movimiento : MonoBehaviour
         float restaX = transform.position.x - checkpoint[contador].transform.position.x;
         float restaY = transform.position.y - checkpoint[contador].transform.position.y;
 
-        if (Mathf.Abs(restaX) <= 0.1 && Mathf.Abs(restaY) <= 0.1)
+        if (Mathf.Abs(restaX) <= 0.15 && Mathf.Abs(restaY) <= 0.15)
         {
             if (contador < checkpoint.Length - 1)
             {
