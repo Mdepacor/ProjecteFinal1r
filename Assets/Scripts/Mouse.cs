@@ -64,6 +64,7 @@ public class Mouse : MonoBehaviour
                             if (menuTorres[i].tag == dibujoTorre[j].name)
                             {
                                 lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
+                                lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
                                 lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
                                 lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
                                 esconderMostrar(false);
