@@ -1132,6 +1132,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5dfd0eae962f3854ca5826af3b6a88e9, type: 3}
   - {fileID: 21300000, guid: f586fdd61bf6ca349ae63012fd5d9af3, type: 3}
   - {fileID: 21300000, guid: cfadbb47e36efcc40848fc1099914c2a, type: 3}
+  torre: 0
 --- !u!58 &594176720
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2202,7 +2203,7 @@ Transform:
   m_GameObject: {fileID: 1236939657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -1.69, y: 0, z: -10}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2445,6 +2446,7 @@ GameObject:
   - component: {fileID: 1388212294}
   - component: {fileID: 1388212296}
   - component: {fileID: 1388212295}
+  - component: {fileID: 1388212298}
   - component: {fileID: 1388212297}
   m_Layer: 0
   m_Name: Torre00
@@ -2577,11 +2579,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6464221a8332f4d9208fa0823e823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dibujoTorre:
-  - {fileID: 21300000, guid: cbe27de72baa55b4db07301a74356fd8, type: 3}
-  - {fileID: 21300000, guid: 5dfd0eae962f3854ca5826af3b6a88e9, type: 3}
-  - {fileID: 21300000, guid: f586fdd61bf6ca349ae63012fd5d9af3, type: 3}
-  - {fileID: 21300000, guid: cfadbb47e36efcc40848fc1099914c2a, type: 3}
+  _prefabs:
+  - {fileID: 3396367076830964272, guid: f3aebd909b225374daccbbf6b3c6847f, type: 3}
+--- !u!58 &1388212298
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388212293}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.061041906, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1476533877
 GameObject:
   m_ObjectHideFlags: 0
