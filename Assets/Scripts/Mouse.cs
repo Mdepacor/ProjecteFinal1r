@@ -11,6 +11,7 @@ public class Mouse : MonoBehaviour
     private GameObject[] menuTorres;
     private GameObject lastClick;
     public Sprite[] dibujoTorre;
+    public bool torre = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,9 +66,11 @@ public class Mouse : MonoBehaviour
                             {
                                 lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
                                 lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
+                                lastClick.GetComponent<CircleCollider2D>().radius *= 2.5f;
                                 lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
                                 lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
                                 esconderMostrar(false);
+                                torre = true;
                             }
                         }
                     }
