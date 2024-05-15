@@ -8,36 +8,53 @@ public class DisparoTorre : MonoBehaviour
 
     public GameObject[] _prefabs;
     private Sprite asprite;
-
-    
+    private float time;
+    public float recargarDisparo;
 
     // Start is called before the first frame update
     void Start()
-
     {
         asprite = transform.GetComponent<SpriteRenderer>().sprite;
-
+        time = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+        time += Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemigos" || collision.gameObject.tag == "Boss")
+    //    {
+    //        if (transform.GetComponent<SpriteRenderer>().sprite != asprite)
+    //        {
+    //            Instantiate(_prefabs[0], transform.position, transform.rotation);
+
+    //            DañoBala bala = FindAnyObjectByType<DañoBala>();
+    //            bala.enemy = collision.gameObject;
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-
-        
-        if (collision.gameObject.tag == "Enemigos") 
+        if (time >= recargarDisparo)
         {
-
-            if (transform.GetComponent<SpriteRenderer>().sprite != asprite)
+            if (collision.gameObject.tag == "Enemigos" || collision.gameObject.tag == "Boss")
             {
-                Instantiate(_prefabs[0], transform.position, transform.rotation);
+                if (transform.GetComponent<SpriteRenderer>().sprite != asprite)
+                {
+                    Instantiate(_prefabs[0], transform.position, transform.rotation);
+
+                    DañoBala bala = FindAnyObjectByType<DañoBala>();
+                    bala.enemy = collision.gameObject;
+                }
             }
 
-
+            time = 0;
         }
     }
 }

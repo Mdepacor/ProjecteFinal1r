@@ -7,22 +7,19 @@ public class Enemigos : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    int vida;
+    public int vida;
     //GameObject barra;
     void Start()
     {
-        vida = 1;
         //barra = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vida < 1) 
+        if (vida <= 0) 
         { 
             Destroy(gameObject);
-        
-        
         }
     }
 
@@ -31,9 +28,11 @@ public class Enemigos : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             Destroy(gameObject);
-         
-            
-
         }
+    }
+
+    public void SetVida(int damage)
+    {
+        vida -= damage;
     }
 }

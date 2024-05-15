@@ -11,7 +11,6 @@ public class Mouse : MonoBehaviour
     private GameObject[] menuTorres;
     private GameObject lastClick;
     public Sprite[] dibujoTorre;
-    public bool torre = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,16 +40,26 @@ public class Mouse : MonoBehaviour
             RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (click.collider != null)
             {
+                Debug.Log(click.collider.name);
+                Debug.Log(click.collider.offset);
+                Debug.Log(click.collider.isTrigger);
+                Debug.Log(click.collider.GetComponent<BoxCollider2D>());
                 // Cambio de posicion del menu 
                 for (int i = 0; i < construirTorres.Length; i++)
                 {
                     if (click.collider == construirTorres[i].GetComponent<BoxCollider2D>())
-                    {
+                    { 
                         lastClick = construirTorres[i];
 
                         menu.transform.position = construirTorres[i].transform.position;
 
                         esconderMostrar(true);
+                        break;
+                    }
+
+                    if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
+                    {
+                        esconderMostrar(false);
                         break;
                     }
                 }
@@ -70,7 +79,6 @@ public class Mouse : MonoBehaviour
                                 lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
                                 lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
                                 esconderMostrar(false);
-                                torre = true;
                             }
                         }
                     }
@@ -81,6 +89,60 @@ public class Mouse : MonoBehaviour
                 esconderMostrar(false);
             }
         }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        //    RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
+        //    if (click.collider != null)
+        //    {
+        //        // Cambio de posicion del menu 
+        //        for (int i = 0; i < construirTorres.Length; i++)
+        //        {
+        //            if (click.collider == construirTorres[i].GetComponent<BoxCollider2D>())
+        //            {
+        //                lastClick = construirTorres[i];
+
+        //                menu.transform.position = construirTorres[i].transform.position;
+
+        //                esconderMostrar(true);
+        //                break;
+        //            }
+
+        //            if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
+        //            {
+        //                esconderMostrar(false);
+        //                break;
+        //            }
+        //        }
+
+        //        // Construccion de la torre
+        //        for (int i = 0; i < menuTorres.Length; i++)
+        //        {
+        //            if (click.collider == menuTorres[i].GetComponent<BoxCollider2D>())
+        //            {
+        //                for (int j = 0; j < dibujoTorre.Length; j++)
+        //                {
+        //                    if (menuTorres[i].tag == dibujoTorre[j].name)
+        //                    {
+        //                        lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
+        //                        lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
+        //                        lastClick.GetComponent<CircleCollider2D>().radius *= 2.5f;
+        //                        lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+        //                        lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
+        //                        esconderMostrar(false);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        esconderMostrar(false);
+        //    }
+        //}
     }
 
     private void esconderMostrar(bool trueFalse)
@@ -92,6 +154,14 @@ public class Mouse : MonoBehaviour
             t.GetComponent<SpriteRenderer>().enabled = trueFalse;
         }
 
-        menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, menu.transform.position.z * - 1);
+        if (trueFalse)
+        {
+            menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, -5);
+        }
+        else
+        {
+            menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, 5);
+        }
+        
     }
 }
