@@ -8,6 +8,7 @@ public class Enemigos : MonoBehaviour
     // Start is called before the first frame update
 
     public int vida;
+    public int damageCastillo;
     //GameObject barra;
     void Start()
     {
@@ -27,6 +28,9 @@ public class Enemigos : MonoBehaviour
     {
         if (collision.gameObject.tag == "Finish")
         {
+            GameObject castillo = GameObject.FindWithTag("Castillo");
+            castillo.GetComponent<Castillo>().SetVida(damageCastillo);
+
             Destroy(gameObject);
         }
     }

@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 5
+  damageCastillo: 1
 --- !u!50 &8165150487588533606
 Rigidbody2D:
   serializedVersion: 4

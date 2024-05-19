@@ -40,47 +40,30 @@ public class Mouse : MonoBehaviour
             RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (click.collider != null)
             {
-                Debug.Log(click.collider.name);
-                Debug.Log(click.collider.offset);
-                Debug.Log(click.collider.isTrigger);
-                Debug.Log(click.collider.GetComponent<BoxCollider2D>());
                 // Cambio de posicion del menu 
-                for (int i = 0; i < construirTorres.Length; i++)
+
+                if (click.collider.name.Contains("Torre"))
                 {
-                    if (click.collider == construirTorres[i].GetComponent<BoxCollider2D>())
-                    { 
-                        lastClick = construirTorres[i];
+                    menu.transform.position = click.collider.transform.position;
+                    lastClick = click.collider.gameObject;
 
-                        menu.transform.position = construirTorres[i].transform.position;
-
-                        esconderMostrar(true);
-                        break;
-                    }
-
-                    if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
-                    {
-                        esconderMostrar(false);
-                        break;
-                    }
+                    esconderMostrar(true);
                 }
 
                 // Construccion de la torre
-                for (int i = 0; i < menuTorres.Length; i++)
+                
+                for (int j = 0; j < dibujoTorre.Length; j++)
                 {
-                    if (click.collider == menuTorres[i].GetComponent<BoxCollider2D>())
+                    if (click.collider.tag == dibujoTorre[j].name)
                     {
-                        for (int j = 0; j < dibujoTorre.Length; j++)
-                        {
-                            if (menuTorres[i].tag == dibujoTorre[j].name)
-                            {
-                                lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
-                                lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
-                                lastClick.GetComponent<CircleCollider2D>().radius *= 2.5f;
-                                lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
-                                lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
-                                esconderMostrar(false);
-                            }
-                        }
+                        lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
+                        lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
+                        lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+                        lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
+                        lastClick.transform.GetChild(0).gameObject.GetComponent<DisparoTorre>().enabled = true;
+                        lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                        lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().radius *= 2.5f;
+                        esconderMostrar(false);
                     }
                 }
             }
@@ -111,11 +94,11 @@ public class Mouse : MonoBehaviour
         //                break;
         //            }
 
-        //            if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
-        //            {
-        //                esconderMostrar(false);
-        //                break;
-        //            }
+        //            //if (click.collider == construirTorres[i].GetComponent<CircleCollider2D>())
+        //            //{
+        //            //    esconderMostrar(false);
+        //            //    break;
+        //            //}
         //        }
 
         //        // Construccion de la torre
@@ -129,9 +112,11 @@ public class Mouse : MonoBehaviour
         //                    {
         //                        lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
         //                        lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
-        //                        lastClick.GetComponent<CircleCollider2D>().radius *= 2.5f;
+        //                        //lastClick.GetComponent<CircleCollider2D>().radius *= 2.5f;
         //                        lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
         //                        lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
+        //                        lastClick.transform.GetChild(0).gameObject.GetComponent<DisparoTorre>().enabled = true;
+        //                        lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().radius *= 2.5f;
         //                        esconderMostrar(false);
         //                    }
         //                }

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 10
+  damageCastillo: 3
 --- !u!60 &5830220306554816978
 PolygonCollider2D:
   m_ObjectHideFlags: 0
