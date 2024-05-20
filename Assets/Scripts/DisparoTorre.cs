@@ -10,11 +10,13 @@ public class DisparoTorre : MonoBehaviour
     //private Sprite asprite;
     private float time;
     public float recargarDisparo;
+   
+    private GameObject bala;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //asprite = transform.GetComponent<SpriteRenderer>().sprite;
         time = 0;
     }
 
@@ -22,6 +24,7 @@ public class DisparoTorre : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+
     }
 
 
@@ -45,13 +48,15 @@ public class DisparoTorre : MonoBehaviour
         {
             if (collision.gameObject.tag == "Enemigos" || collision.gameObject.tag == "Boss")
             {
-                Instantiate(_prefabs[0], transform.position, transform.rotation);
+                
+                 bala = Instantiate(_prefabs[0], transform.position, transform.rotation);
 
-                DañoBala bala = FindAnyObjectByType<DañoBala>();
-                bala.enemy = collision.gameObject;
+                bala.GetComponent<DañoBala>().SetEnemigo(collision.gameObject);
             }
+            
 
             time = 0;
         }
     }
+  
 }

@@ -39,4 +39,8 @@ public class Enemigos : MonoBehaviour
     {
         vida -= damage;
     }
+    public int GetVida() 
+    { 
+        return vida;
+    }
 }

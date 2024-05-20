@@ -6,7 +6,7 @@ using UnityEngine;
 public class DañoBala : MonoBehaviour
 {
     public int damage;
-    public GameObject enemy;
+    private GameObject enemy;
     public float velocidad;
     private float time;
     // Start is called before the first frame update
@@ -19,8 +19,11 @@ public class DañoBala : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direccion = enemy.transform.position - transform.position;
+        try
+        {
 
+        Vector3 direccion = enemy.transform.position - transform.position;
+       
         transform.position = transform.position + (direccion.normalized * velocidad * Time.deltaTime);
 
         time += Time.deltaTime;
@@ -29,6 +32,15 @@ public class DañoBala : MonoBehaviour
         {
             BalaPerdida();
         }
+        }
+        catch (Exception e)
+        {
+            e = new Exception();
+             
+            BalaPerdida();
+            
+       
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,12 +48,19 @@ public class DañoBala : MonoBehaviour
         if (collision.gameObject.tag == "Enemigos" || collision.gameObject.tag == "Boss")
         {
             enemy.GetComponent<Enemigos>().SetVida(damage);
-            Destroy(gameObject);
+            BalaPerdida();
+           
         }
     }
 
     private void BalaPerdida()
     {
         Destroy(gameObject);
+    }
+
+    public void SetEnemigo( GameObject enemigo)
+    {
+
+        enemy = enemigo;
     }
 }
