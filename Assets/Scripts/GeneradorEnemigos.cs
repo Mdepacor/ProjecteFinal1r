@@ -100,7 +100,7 @@ public class GeneradorEnemigos : MonoBehaviour
                 int posicion = boss.Length;
                 boss[posicion - 1].GetComponent<Movimiento>().velocidad = 5;
 
-                cam.zoomInZoomOut(new Vector3(0, 0, -10), 13f);
+                cam.zoomInZoomOut(new Vector3(0, 0, -10), 14.5f);
             }
             catch (Exception e)
             {
