@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2250313409791536110}
   - component: {fileID: 3454326904439475538}
   - component: {fileID: 437744812638586013}
+  - component: {fileID: 5689833629659517848}
   - component: {fileID: 8165150487588533606}
   - component: {fileID: -579171668874763322}
   - component: {fileID: 4879365379308857271}
@@ -199,8 +200,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e18a79c25faae4e99f0e5159e7f4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 5
+  vidaMax: 5
+  vidaRestante: 0
   damageCastillo: 1
+--- !u!114 &5689833629659517848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718592529683732032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8481303d2bc938a45bb90102605c3c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigos: {fileID: 437744812638586013}
+  healthPrefabs:
+  - {fileID: 3520241610849766165, guid: 78250305b9701ca4eae979964f3fc8ca, type: 3}
 --- !u!50 &8165150487588533606
 Rigidbody2D:
   serializedVersion: 4

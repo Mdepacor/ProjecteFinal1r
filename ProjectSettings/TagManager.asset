@@ -15,6 +15,9 @@ TagManager:
   - Njord
   - Thor
   - Castillo
+  - VidaEnemigo
+  - VidaBoss
+  - Canvas
   layers:
   - Default
   - TransparentFX

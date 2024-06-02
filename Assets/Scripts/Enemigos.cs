@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,22 +7,22 @@ using UnityEngine;
 public class Enemigos : MonoBehaviour
 {
     // Start is called before the first frame update
+    public event Action OnChangeHealth;
 
-    public int vida;
+    public int vidaMax;
+    public int vidaRestante;
     public int damageCastillo;
     //GameObject barra;
     void Start()
     {
+        vidaRestante = vidaMax;
         //barra = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vida <= 0) 
-        { 
-            Destroy(gameObject);
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,15 +33,28 @@ public class Enemigos : MonoBehaviour
             castillo.GetComponent<Castillo>().SetVida(damageCastillo);
 
             Destroy(gameObject);
+
         }
     }
 
     public void SetVida(int damage)
     {
-        vida -= damage;
+        vidaRestante -= damage;
+
+        if (vidaRestante <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        UpdateHealth();
     }
     public int GetVida() 
     { 
-        return vida;
+        return vidaRestante;
+    }
+
+    public void UpdateHealth()
+    {
+        OnChangeHealth?.Invoke();
     }
 }
