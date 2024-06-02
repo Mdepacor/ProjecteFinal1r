@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 318130727}
   - component: {fileID: 318130728}
   - component: {fileID: 318130729}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IThor
   m_TagString: Thor
   m_Icon: {fileID: 0}
@@ -1407,7 +1407,7 @@ GameObject:
   - component: {fileID: 594176717}
   - component: {fileID: 594176719}
   - component: {fileID: 594176720}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Menu
   m_TagString: Menu
   m_Icon: {fileID: 0}
@@ -1474,16 +1474,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594176716}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 7.5085, y: 7.5085, z: 7.5085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1362.7587}
+  m_LocalScale: {x: 107.70814, y: 107.70814, z: 107.70814}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576639253}
   - {fileID: 1731974102}
   - {fileID: 1612371758}
   - {fileID: 318130727}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1076955138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &594176719
 MonoBehaviour:
@@ -2846,6 +2846,7 @@ RectTransform:
   m_Children:
   - {fileID: 239360432}
   - {fileID: 754134152}
+  - {fileID: 594176718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4112,7 +4113,7 @@ GameObject:
   - component: {fileID: 1576639253}
   - component: {fileID: 1576639254}
   - component: {fileID: 1576639255}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IFreyr
   m_TagString: Freyr
   m_Icon: {fileID: 0}
@@ -4242,7 +4243,7 @@ GameObject:
   - component: {fileID: 1612371758}
   - component: {fileID: 1612371759}
   - component: {fileID: 1612371760}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: INjord
   m_TagString: Njord
   m_Icon: {fileID: 0}
@@ -4589,7 +4590,7 @@ GameObject:
   - component: {fileID: 1731974102}
   - component: {fileID: 1731974103}
   - component: {fileID: 1731974104}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IHela
   m_TagString: Hela
   m_Icon: {fileID: 0}
@@ -5903,6 +5904,5 @@ SceneRoots:
   - {fileID: 1974848364}
   - {fileID: 1008318825}
   - {fileID: 2019166327}
-  - {fileID: 594176718}
   - {fileID: 1148142123}
   - {fileID: 374685540}

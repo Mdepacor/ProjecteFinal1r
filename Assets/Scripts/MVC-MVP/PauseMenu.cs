@@ -51,6 +51,7 @@ public class Pausemenu : MonoBehaviour
     public void mostrarPausePanel()
     {
         pausePanel.SetActive(true);
+        pausePanel.transform.SetAsLastSibling();
         Time.timeScale = 0;
     }
 
