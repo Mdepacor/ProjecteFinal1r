@@ -7,7 +7,7 @@ public class Movimiento : MonoBehaviour
 {
     public float velocidad;
     private GameObject[] checkpoint;
-    private int contador;
+    public int contador;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +33,10 @@ public class Movimiento : MonoBehaviour
                 contador++;
             }
         }
+    }
+
+    public void reiniciarContador()
+    {
+        contador = 0;
     }
 }

@@ -38,9 +38,22 @@ public class VidaEnemigos : MonoBehaviour
         {
             Destroy(healthUI.gameObject);
             enemigos.OnChangeHealth -= OnHealthChanged;
+
         }
     }
-
+    private void OnDisable()
+    {
+        if (enemigos != null)
+        {
+            healthUI.gameObject.SetActive(false);
+            
+        }
+    }
+    private void OnEnable()
+    {
+        healthUI.gameObject.SetActive(true);
+    }
+    
     public void RecibirDamage(int damage)
     {
         enemigos?.SetVida(damage);

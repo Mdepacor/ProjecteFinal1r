@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8802655728668059262
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8481303d2bc938a45bb90102605c3c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigos: {fileID: 437744812638586013}
   healthPrefabs:
   - {fileID: 3520241610849766165, guid: 78250305b9701ca4eae979964f3fc8ca, type: 3}
 --- !u!50 &8165150487588533606

@@ -32,7 +32,9 @@ public class Enemigos : MonoBehaviour
             GameObject castillo = GameObject.FindWithTag("Castillo");
             castillo.GetComponent<Castillo>().SetVida(damageCastillo);
 
-            Destroy(gameObject);
+           transform.gameObject.SetActive(false);
+            transform.GetComponent<Movimiento>().contador = 0;
+            vidaRestante = vidaMax;
 
         }
     }
@@ -43,7 +45,10 @@ public class Enemigos : MonoBehaviour
 
         if (vidaRestante <= 0)
         {
-            Destroy(gameObject);
+            transform.gameObject.SetActive(false);
+            transform.GetComponent<Movimiento>().contador = 0;
+            vidaRestante = vidaMax;
+
         }
 
         UpdateHealth();
@@ -57,4 +62,5 @@ public class Enemigos : MonoBehaviour
     {
         OnChangeHealth?.Invoke();
     }
+   
 }

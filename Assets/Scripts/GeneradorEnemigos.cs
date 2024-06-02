@@ -90,9 +90,12 @@ public class GeneradorEnemigos : MonoBehaviour
     }
     public void generarEnemy()
     {
-         Instantiate(_prefabs[0],spawn.transform.position,spawn.transform.rotation);
+        //Instantiate(_prefabs[0],spawn.transform.position,spawn.transform.rotation);
+        GameObject enemy= transform.GetComponent<Pool>().requestEnemy();
+        enemy.transform.position = spawn.transform.position;
+       
     }
-    public void moverBoss()
+    public void moverBoss() 
     {
        
             try

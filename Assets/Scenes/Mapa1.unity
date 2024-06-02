@@ -3052,6 +3052,7 @@ GameObject:
   - component: {fileID: 1008318824}
   - component: {fileID: 1008318826}
   - component: {fileID: 1008318827}
+  - component: {fileID: 1008318828}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Spawn
@@ -3156,6 +3157,21 @@ MonoBehaviour:
   tiempoEnemigos: 2
   tiempoBoss: 20
   state: 4
+--- !u!114 &1008318828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008318823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f3a238d63cb6344b2f93d78c750cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs: {fileID: 6718592529683732032, guid: e0612dbe50171d94785e97d9505a41ee, type: 3}
+  enemyPool: []
+  poolSize: 10
 --- !u!1 &1028928643
 GameObject:
   m_ObjectHideFlags: 0
