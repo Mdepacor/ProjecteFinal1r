@@ -32,44 +32,47 @@ public class Mouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.timeScale == 1)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (click.collider != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                // Cambio de posicion del menu 
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-                if (click.collider.name.Contains("Torre"))
+                RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
+                if (click.collider != null)
                 {
-                    menu.transform.position = click.collider.transform.position;
-                    lastClick = click.collider.gameObject;
+                    // Cambio de posicion del menu 
 
-                    esconderMostrar(true);
-                }
-
-                // Construccion de la torre
-                
-                for (int j = 0; j < dibujoTorre.Length; j++)
-                {
-                    if (click.collider.tag == dibujoTorre[j].name)
+                    if (click.collider.name.Contains("Torre"))
                     {
-                        lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
-                        lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
-                        lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
-                        lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
-                        lastClick.transform.GetChild(0).gameObject.GetComponent<DisparoTorre>().enabled = true;
-                        lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = true;
-                        lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().radius *= 2.5f;
-                        esconderMostrar(false);
+                        menu.transform.position = click.collider.transform.position;
+                        lastClick = click.collider.gameObject;
+
+                        esconderMostrar(true);
+                    }
+
+                    // Construccion de la torre
+
+                    for (int j = 0; j < dibujoTorre.Length; j++)
+                    {
+                        if (click.collider.tag == dibujoTorre[j].name)
+                        {
+                            lastClick.GetComponent<SpriteRenderer>().sprite = dibujoTorre[j];
+                            lastClick.GetComponent<BoxCollider2D>().size = new Vector2(3, 3);
+                            lastClick.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+                            lastClick.transform.localScale = new Vector3(lastClick.transform.localScale.x / 2.5f, lastClick.transform.localScale.y / 2.5f, lastClick.transform.localScale.z);
+                            lastClick.transform.GetChild(0).gameObject.GetComponent<DisparoTorre>().enabled = true;
+                            lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                            lastClick.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().radius *= 2.5f;
+                            esconderMostrar(false);
+                        }
                     }
                 }
-            }
-            else
-            {
-                esconderMostrar(false);
+                else
+                {
+                    esconderMostrar(false);
+                }
             }
         }
 
