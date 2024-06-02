@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6464221a8332f4d9208fa0823e823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs: []
+  _prefabs:
+  - {fileID: 3396367076830964272, guid: f3aebd909b225374daccbbf6b3c6847f, type: 3}
   recargarDisparo: 1.5
