@@ -7,58 +7,53 @@ using UnityEngine.UI;
 
 public class Pausemenu : MonoBehaviour
 {
-    //GraphicRaycaster m_Raycaster;
-    //PointerEventData m_PointerEventData;
-    //EventSystem m_EventSystem;
-
     public GameObject pausePanel;
+    public GameObject optionPanel;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Fetch the Raycaster from the GameObject (the Canvas)
-        //m_Raycaster = GetComponent<GraphicRaycaster>();
-        ////Fetch the Event System from the Scene
-        //m_EventSystem = GetComponent<EventSystem>();
+        
     }
 
     private void Update()
     {
-        //Check if the left Mouse button is clicked
-        //if (Input.GetKey(KeyCode.Mouse0))
-        //{
-        //    Set up the new Pointer Event
-        //    m_PointerEventData = new PointerEventData(m_EventSystem);
-        //    Set the Pointer Event Position to that of the mouse position
-        //    m_PointerEventData.position = Input.mousePosition;
+        
+    }
 
-        //    Create a list of Raycast Results
-        //    List<RaycastResult> results = new List<RaycastResult>();
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
 
-        //    Raycast using the Graphics Raycaster and mouse click position
-        //    m_Raycaster.Raycast(m_PointerEventData, results);
-
-        //    For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-        //    foreach (RaycastResult result in results)
-        //    {
-        //        if (result.gameObject.tag == "PausePanel")
-        //        {
-        //            esconderPausePanel();
-        //        }
-        //    }
-        //}
+    public void Resume()
+    {
+        Time.timeScale = 1;
     }
 
     public void mostrarPausePanel()
     {
         pausePanel.SetActive(true);
         pausePanel.transform.SetAsLastSibling();
-        Time.timeScale = 0;
+        Pause();
     }
 
     public void esconderPausePanel()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Resume();
+    }
+
+    public void mostrarMenuOpciones()
+    {
+        pausePanel.SetActive(false);
+        optionPanel.SetActive(true);
+    }
+
+    public void volverPausePanel()
+    {
+        pausePanel.SetActive(true);
+        optionPanel.SetActive(false);
     }
 
     public void volverMenuInicio()

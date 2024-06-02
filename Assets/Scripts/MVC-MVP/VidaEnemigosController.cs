@@ -36,7 +36,6 @@ public class VidaEnemigos : MonoBehaviour
     {
         if (enemigos != null)
         {
-            DisableImage();
             Destroy(healthUI.gameObject);
             enemigos.OnChangeHealth -= OnHealthChanged;
         }
@@ -70,12 +69,5 @@ public class VidaEnemigos : MonoBehaviour
     public void OnHealthChanged()
     {
         UpdateView();
-    }
-
-    private void DisableImage()
-    {
-        healthValue.GetComponent<Image>().enabled = false;
-        healthBar.GetComponent<Image>().enabled = false;
-        healthUI.GetComponent<Image>().enabled = false;
     }
 }
