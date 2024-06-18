@@ -9,6 +9,7 @@ public class Enemigos : MonoBehaviour
     // Start is called before the first frame update
     public event Action OnChangeHealth;
 
+    private int defeated;
     public int vidaMax;
     public int vidaRestante;
     public int damageCastillo;
@@ -16,6 +17,8 @@ public class Enemigos : MonoBehaviour
     void Start()
     {
         vidaRestante = vidaMax;
+        defeated = 0;
+
         //barra = transform.GetChild(0).gameObject;
     }
 
@@ -35,6 +38,8 @@ public class Enemigos : MonoBehaviour
            transform.gameObject.SetActive(false);
             transform.GetComponent<Movimiento>().contador = 0;
             vidaRestante = vidaMax;
+            defeated++;
+
 
         }
     }
@@ -46,8 +51,12 @@ public class Enemigos : MonoBehaviour
         if (vidaRestante <= 0)
         {
             transform.gameObject.SetActive(false);
+
+
             transform.GetComponent<Movimiento>().contador = 0;
             vidaRestante = vidaMax;
+            defeated++;
+            //transform.GetComponent<MaquinaDeEstados>().enemiesDefeated += 1;
 
         }
 
@@ -62,5 +71,6 @@ public class Enemigos : MonoBehaviour
     {
         OnChangeHealth?.Invoke();
     }
-   
+  
+
 }

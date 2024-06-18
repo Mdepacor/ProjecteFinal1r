@@ -5,7 +5,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Pool : MonoBehaviour
 {
-
+    public int defeatedEnemies;
     [SerializeField] private GameObject enemyPrefabs;
     public List<GameObject> enemyPool = new List<GameObject>();
     [SerializeField] private int poolSize = 20;
