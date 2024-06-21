@@ -14,20 +14,16 @@ public class GeneradorEnemigos : MonoBehaviour
     private Cam cam;
     private Movimiento velocidad;
     private GameObject[] boss;
-    public int enemiesDefeated;
-   
+     
 
-
-
-
+  
     // Start is called before the first frame update
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawn");
         cam= FindAnyObjectByType<Cam>(); 
         velocidad= FindAnyObjectByType<Movimiento>();
-        enemiesDefeated = 0;
-
+      
         //tiempoEnemigos = 2.0;
         tiempoBoss = 20.0;
         
@@ -80,10 +76,11 @@ public class GeneradorEnemigos : MonoBehaviour
 
 
 
-    public void generarBoss()
+    public void generarBoss(int cantidadVida)
     {
+        
         Instantiate(_prefabs[1], spawn.transform.position, spawn.transform.rotation);
-        enemiesDefeated++;
+
         boss = GameObject.FindGameObjectsWithTag("Boss");
         int posicion = boss.Length;
         boss[posicion - 1].GetComponent<Movimiento>().velocidad = 0;
@@ -94,7 +91,7 @@ public class GeneradorEnemigos : MonoBehaviour
     {
         //Instantiate(_prefabs[0],spawn.transform.position,spawn.transform.rotation);
         GameObject enemy= transform.GetComponent<Pool>().requestEnemy();
-        enemiesDefeated++;
+        
         enemy.transform.position = spawn.transform.position;
        
     }

@@ -46,7 +46,8 @@ public class VidaEnemigos : MonoBehaviour
         if (enemigos != null)
         {
             healthUI.gameObject.SetActive(false);
-            
+
+
         }
     }
     private void OnEnable()

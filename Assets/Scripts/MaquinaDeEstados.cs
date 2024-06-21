@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -11,11 +12,14 @@ public class MaquinaDeEstados : MonoBehaviour
     public int waveCount;
     public int wave;
     public int CantidadBoss ;
-
+    private int dificultad;
+    private int count;
     public bool spawning;
     private int enemiesSpawned;
     public int enemiesDefeated;
-    private int typeE;
+    public GameObject waves;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,8 @@ public class MaquinaDeEstados : MonoBehaviour
         spawning = false;
         enemiesSpawned = 0;
         enemiesDefeated = 0;
+        dificultad = 1;
+        waves.GetComponent<TMP_Text>().text = wave.ToString();
 
     }
 
@@ -38,14 +44,25 @@ public class MaquinaDeEstados : MonoBehaviour
         for (int i = 0; i < waveC; i++)
         {
             spawnEnemies(wave);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
         }
         wave += 1;
-        if (wave ==5)
+        waves.GetComponent<TMP_Text>().text = wave.ToString();
+
+        if (wave %5== 0)
         {
             CantidadBoss = 1;
         }
-        waveCount += 2;
+        if (count==9)
+        {
+            count = 0;
+            dificultad++;
+        }
+        else
+        {
+            count++;
+        }
+        waveCount += 2*dificultad;
         spawning = false;
         yield break;
     }
@@ -55,11 +72,12 @@ public class MaquinaDeEstados : MonoBehaviour
         
         state = STATE.AparecerENEMY;
         
-        if(CantidadBoss ==1)
+        if(CantidadBoss >=1)
         {
+            new WaitForSeconds(4);
             state = STATE.AparecerBOSS;
             tiempoBoss = 20.0;
-            CantidadBoss = 0;
+            CantidadBoss--; ;
         }
     }
     public enum STATE
@@ -76,7 +94,7 @@ public class MaquinaDeEstados : MonoBehaviour
     private void Update()
     {
 
-        enemiesDefeated = transform.GetComponent<GeneradorEnemigos>().enemiesDefeated;
+        
         //int def = transform.GetComponent<Enemigos>().ReturnDefeatedEnemies();
         if (spawning == false && enemiesSpawned == enemiesDefeated)
         {
@@ -106,10 +124,11 @@ public class MaquinaDeEstados : MonoBehaviour
         switch (state)
         {
             case STATE.AparecerBOSS:
-                transform.GetComponent<GeneradorEnemigos>().generarBoss();
+                transform.GetComponent<GeneradorEnemigos>().generarBoss(dificultad);
                 enemiesSpawned++;
                 state = STATE.Nada;
                 tiempoBoss = 20.0;
+
 
 
                 break;
