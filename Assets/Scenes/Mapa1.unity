@@ -3139,6 +3139,7 @@ MonoBehaviour:
   _prefabs:
   - {fileID: 6718592529683732032, guid: e0612dbe50171d94785e97d9505a41ee, type: 3}
   - {fileID: 2695845070505017666, guid: 3bb34c579a509b94ba70d50e8d0bb1ce, type: 3}
+  enemiesDefeated: 0
 --- !u!114 &1008318827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4d5886aa021e64595f85bc5efd18e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoEnemigos: 2
+  waveCount: 0
+  wave: 0
+  CantidadBoss: 1
+  spawning: 0
+  enemiesDefeated: 0
   tiempoBoss: 20
   state: 4
 --- !u!114 &1008318828
@@ -3166,6 +3171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f3a238d63cb6344b2f93d78c750cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeatedEnemies: 0
   enemyPrefabs: {fileID: 6718592529683732032, guid: e0612dbe50171d94785e97d9505a41ee, type: 3}
   enemyPool: []
   poolSize: 10
