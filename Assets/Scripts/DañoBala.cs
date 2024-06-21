@@ -7,13 +7,14 @@ public class DañoBala : MonoBehaviour
 {
     public int damage;
     private GameObject enemy;
-    public float velocidad;
+    private float velocidad;
     private float time;
     // Start is called before the first frame update
     void Start()
     {
         transform.position += new Vector3(0, 0, -5);
         time = 0;
+        velocidad = 15;
     }
 
     // Update is called once per frame

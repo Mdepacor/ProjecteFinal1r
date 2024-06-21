@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Coins : MonoBehaviour
 {
@@ -37,8 +36,9 @@ public class Coins : MonoBehaviour
     {
         numCoins += numC;
     }
-    public void restarDinero()
-    {
 
+    public void restarDinero(int numC)
+    {
+        numCoins -= numC;
     }
 }

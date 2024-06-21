@@ -10,6 +10,7 @@ public class DisparoTorre : MonoBehaviour
     //private Sprite asprite;
     private float time;
     public float recargarDisparo;
+    public float coinsNecesarias;
    
     private GameObject bala;
 

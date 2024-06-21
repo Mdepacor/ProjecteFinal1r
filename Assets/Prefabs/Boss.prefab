@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3290673914353082099}
   - component: {fileID: 8399715496968784984}
   - component: {fileID: -534536551415791005}
-  - component: {fileID: -737834917713724788}
   - component: {fileID: 5830220306554816978}
   - component: {fileID: 7230228487861987230}
   - component: {fileID: 7451242405770437414}
@@ -123,7 +122,7 @@ MonoBehaviour:
   damageCastillo: 3
   maquinaDeEstados: {fileID: 0}
   coins: {fileID: 0}
-  monedasConseguidas: 35
+  monedasConseguidas: 15
 --- !u!114 &-534536551415791005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPrefabs:
   - {fileID: 3693079475800577606, guid: 1e230a6bb343fcd41bfdc6573129e8be, type: 3}
---- !u!114 &-737834917713724788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2695845070505017666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bb64a60a73ce74698e0d5dae6be380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coins: {fileID: 0}
 --- !u!60 &5830220306554816978
 PolygonCollider2D:
   m_ObjectHideFlags: 0
