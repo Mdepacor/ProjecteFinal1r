@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
-  - {fileID: 3396367076830964272, guid: f3aebd909b225374daccbbf6b3c6847f, type: 3}
+  - {fileID: 3396367076830964272, guid: d41a37aedbb31514f9cac491a1c3a245, type: 3}
   recargarDisparo: 2
   coinsNecesarias: 100
 --- !u!58 &-2961509638989160521

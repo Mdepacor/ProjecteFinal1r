@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1701545681479922913}
   - component: {fileID: -4808052760728587137}
   - component: {fileID: -7532254844844649314}
-  - component: {fileID: 7767299528651496555}
+  - component: {fileID: 1930583004205478487}
   m_Layer: 0
   m_Name: Bala 2
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3396367076830964272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68716335, y: -0.6437094, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.1217, y: 5.8373, z: -5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 622913427, guid: f9788c512eeda1b43ace30875a6c450d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  velocidad: 15
 --- !u!58 &-7532254844844649314
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +135,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &7767299528651496555
+--- !u!95 &1930583004205478487
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -146,7 +145,7 @@ Animator:
   m_GameObject: {fileID: 3396367076830964272}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 04b357607309b904cb4594c67a860a38, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c556bb0f62d50044a8a4f8394d037eb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
