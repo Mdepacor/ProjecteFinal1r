@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
+using Random = System.Random;
 
 public class Pool : MonoBehaviour
 {
     public int defeatedEnemies;
-    [SerializeField] private GameObject enemyPrefabs;
+    public GameObject[] enemyPrefabs;
     public List<GameObject> enemyPool = new List<GameObject>();
     [SerializeField] private int poolSize = 20;
     private Pool instance;
+    private Random rand;
     
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class Pool : MonoBehaviour
     void Start()
     {
 
+        rand = new Random();
         addEnemysToPool(poolSize);
        
     }
@@ -32,7 +34,7 @@ public class Pool : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefabs, transform);
+            GameObject enemy = Instantiate(enemyPrefabs[rand.Next(0, 3)], transform);
             enemy.SetActive(false);
             enemyPool.Add(enemy);
 

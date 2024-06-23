@@ -18,6 +18,8 @@ TagManager:
   - VidaEnemigo
   - VidaBoss
   - Canvas
+  - DeleteTower
+  - Torre
   layers:
   - Default
   - TransparentFX

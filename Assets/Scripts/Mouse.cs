@@ -44,6 +44,21 @@ public class Mouse : MonoBehaviour
                 RaycastHit2D click = Physics2D.Raycast(mousePos2D, Vector2.zero);
                 if (click.collider != null)
                 {
+
+                    if (click.collider.isTrigger)
+                    {
+                        menu.transform.position = click.collider.transform.position;
+                        lastClick = click.collider.gameObject;
+                        mostrarDeleteTower();
+                    }
+
+                    if (click.collider.tag == "DeleteTower")
+                    {
+                        Destroy(lastClick);
+                        monedas.setCoins((int) lastClick.GetComponent<DisparoTorre>().coinsNecesarias / 2);
+                        esconderMostrar(false);
+                    }
+
                     // Cambio de posicion del menu 
 
                     if (click.collider.name.Contains("Torre"))
@@ -51,7 +66,10 @@ public class Mouse : MonoBehaviour
                         menu.transform.position = click.collider.transform.position;
                         lastClick = click.collider.gameObject;
 
-                        esconderMostrar(true);
+                        if (click.collider.tag != "Torre")
+                        {
+                            esconderMostrar(true);
+                        }
                     }
 
                     // Construccion de la torre
@@ -130,8 +148,19 @@ public class Mouse : MonoBehaviour
         foreach (GameObject t in menuTorres)
         {
             t.GetComponent<SpriteRenderer>().enabled = trueFalse;
-            t.GetComponentInChildren<TMP_Text>().enabled = trueFalse;
+
+            try
+            {
+                t.GetComponentInChildren<TMP_Text>().enabled = trueFalse;
+            }
+            catch (Exception e)
+            {
+                e = new Exception();
+            }
         }
+
+        GameObject delete = GameObject.FindGameObjectWithTag("DeleteTower");
+        delete.GetComponent<SpriteRenderer>().enabled = false;
 
         if (trueFalse)
         {
@@ -142,5 +171,12 @@ public class Mouse : MonoBehaviour
             menu.transform.position = new Vector3(menu.transform.position.x, menu.transform.position.y, 5);
         }
         
+    }
+
+    private void mostrarDeleteTower()
+    {
+        menu.GetComponent<SpriteRenderer>().enabled = true;
+        GameObject delete = GameObject.FindGameObjectWithTag("DeleteTower");
+        delete.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

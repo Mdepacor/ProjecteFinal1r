@@ -53,6 +53,7 @@ public class VidaEnemigos : MonoBehaviour
     private void OnEnable()
     {
         healthUI.gameObject.SetActive(true);
+        healthValue.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, healthBar.rect.width);
     }
     
     public void RecibirDamage(int damage)

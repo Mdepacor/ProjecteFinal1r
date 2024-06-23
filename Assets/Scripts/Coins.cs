@@ -27,10 +27,6 @@ public class Coins : MonoBehaviour
     {
         return numCoins;
     }
-    public void more()
-    {
-        numCoins++;
-    }
 
     public void setCoins(int numC)
     {
